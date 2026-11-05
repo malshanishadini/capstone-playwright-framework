@@ -1,8 +1,6 @@
-import { test, expect } from '@playwright/test';
-import { InventoryPage } from '../../src/pages/InventoryPage';
+import { test, expect } from '../../fixtures/index';
 
-test('authenticated user lands on inventory page', async ({ page }) => {
-  const inventoryPage = new InventoryPage(page);
+test('authenticated user lands on inventory page', async ({ page, inventoryPage }) => {
   await inventoryPage.goto();
 
   await expect(page).toHaveURL(/inventory.html/);
