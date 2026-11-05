@@ -1,0 +1,10 @@
+{
+  "page": 1,
+  "per_page": 2,
+  "total": 2,
+  "total_pages": 1,
+  "data": [
+    { "id": 1, "email": "mock.one@example.com", "first_name": "Mock", "last_name": "One" },
+    { "id": 2, "email": "mock.two@example.com", "first_name": "Mock", "last_name": "Two" }
+  ]
+}
