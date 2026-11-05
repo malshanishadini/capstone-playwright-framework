@@ -12,6 +12,8 @@ export class InventoryPage extends BasePage {
   readonly sortDropdown: Locator;
   readonly cartLink: Locator;
   readonly cartBadge: Locator;
+  readonly menuButton: Locator;
+  readonly logoutLink: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -22,6 +24,8 @@ export class InventoryPage extends BasePage {
     this.sortDropdown = page.locator('[data-test="product-sort-container"]');
     this.cartLink = page.locator('[data-test="shopping-cart-link"]');
     this.cartBadge = page.locator('[data-test="shopping-cart-badge"]');
+    this.menuButton = page.locator('#react-burger-menu-btn');
+    this.logoutLink = page.locator('[data-test="logout-sidebar-link"]');
   }
 
   async goto() {
@@ -51,5 +55,10 @@ export class InventoryPage extends BasePage {
 
   async openCart() {
     await this.cartLink.click();
+  }
+
+  async logout() {
+    await this.menuButton.click();
+    await this.logoutLink.click();
   }
 }
