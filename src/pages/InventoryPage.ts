@@ -32,12 +32,20 @@ export class InventoryPage extends BasePage {
     await super.goto('/inventory.html');
   }
 
+    addToCartButton(itemName: string): Locator {
+    return this.page.locator(`[data-test="add-to-cart-${toSlug(itemName)}"]`);
+  }
+
+  removeButton(itemName: string): Locator {
+    return this.page.locator(`[data-test="remove-${toSlug(itemName)}"]`);
+  }
+
   async addItemToCart(itemName: string) {
-    await this.page.locator(`[data-test="add-to-cart-${toSlug(itemName)}"]`).click();
+    await this.addToCartButton(itemName).click();
   }
 
   async removeItemFromCart(itemName: string) {
-    await this.page.locator(`[data-test="remove-${toSlug(itemName)}"]`).click();
+    await this.removeButton(itemName).click();
   }
 
   async sortBy(option: SortOption) {
